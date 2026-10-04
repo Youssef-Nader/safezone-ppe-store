@@ -1,0 +1,87 @@
+
+/* Login and registration panels. */
+.login, .register {
+  align-items: center;
+  background: var(--background);
+  display: flex;
+  justify-content: center;
+  min-height: 74vh;
+  padding: 55px 20px;
+}
+.login form, .register form {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  box-shadow: var(--shadow-md);
+  display: flex;
+  flex-direction: column;
+  max-width: 520px;
+  padding: 34px;
+  width: 100%;
+}
+.login form {
+  max-width: 440px;
+}
+.login h2, .register h2 {
+  color: var(--secondary);
+  font-size: 1.8rem;
+  margin-bottom: 24px;
+  text-align: center;
+}
+.login input, .register input[type='text'], .register input[type='email'], .register input[type='password'] {
+  background: var(--background);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  margin-bottom: 14px;
+  outline: none;
+  padding: 13px 14px;
+  transition: .2s;
+  width: 100%;
+}
+.login input:focus, .register input[type='text']:focus, .register input[type='email']:focus, .register input[type='password']:focus {
+  background: var(--surface);
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(245, 184, 0, .18);
+}
+.login form > button, .register form > button {
+  background: var(--primary);
+  border: 0;
+  border-radius: 10px;
+  color: var(--secondary);
+  cursor: pointer;
+  font-weight: 700;
+  margin-top: 10px;
+  padding: 13px;
+  transition: .2s;
+}
+.login form > button:hover, .register form > button:hover {
+  background: var(--primary-hover);
+}
+/* Registration options. */
+.radio {
+  display: flex;
+  gap: 24px;
+  margin: 5px 0 18px;
+}
+.radio label, .conditions {
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-size: .9rem;
+}
+.radio input, .conditions input {
+  accent-color: var(--primary);
+  margin-right: 6px;
+}
+.conditions {
+  align-items: center;
+  display: flex;
+  gap: 7px;
+}
+@media (max-width: 640px) {
+  .login form, .register form {
+    padding: 25px 20px;
+  }
+  .radio {
+    justify-content: space-between;
+  }
+}

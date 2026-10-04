@@ -1,0 +1,218 @@
+
+/* Sticky desktop navigation. */
+.site-header {
+  background: rgba(16, 42, 67, .98);
+  box-shadow: 0 5px 22px rgba(16, 42, 67, .18);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.navbar {
+  align-items: center;
+  display: flex;
+  height: 78px;
+  justify-content: space-between;
+  margin: auto;
+  padding: 0 32px;
+  width: min(1320px, 100%);
+}
+.brand {
+  align-items: center;
+  color: #fff;
+  display: flex;
+  font-family: 'Manrope', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 800;
+  gap: 10px;
+  letter-spacing: -.02em;
+  text-decoration: none;
+}
+.brand strong {
+  color: var(--primary);
+}
+.brand-mark {
+  align-items: center;
+  background: var(--primary);
+  color: var(--secondary);
+  border-radius: 10px;
+  display: inline-flex;
+  font-size: .95rem;
+  height: 36px;
+  justify-content: center;
+  width: 36px;
+}
+.nav-menu, .nav-links, .auth-links {
+  align-items: center;
+  display: flex;
+}
+.nav-menu {
+  flex: 1;
+  gap: 36px;
+  justify-content: flex-end;
+}
+.nav-links {
+  gap: 6px;
+}
+.nav-links a, .auth-links a {
+  color: #dce7f5;
+  font-size: .94rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color .2s ease, background .2s ease, transform .2s ease;
+}
+.nav-links a {
+  border-radius: 9px;
+  padding: 10px 14px;
+  position: relative;
+}
+.nav-links a:hover, .nav-links a.active {
+  background: rgba(255, 255, 255, .09);
+  color: #fff;
+}
+.nav-links a.active::after {
+  background: var(--primary);
+  border-radius: 4px;
+  bottom: 3px;
+  content: '';
+  height: 2px;
+  left: 14px;
+  position: absolute;
+  right: 14px;
+}
+/* Cart and account actions. */
+.cart-link {
+  align-items: center;
+  display: flex;
+  gap: 7px;
+}
+.cart-link svg {
+  fill: none;
+  height: 20px;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+  width: 20px;
+}
+.cart-badge {
+  align-items: center;
+  background: var(--accent);
+  border-radius: 99px;
+  color: #fff;
+  display: inline-flex;
+  font-size: .68rem;
+  height: 19px;
+  justify-content: center;
+  min-width: 19px;
+  padding-inline: 5px;
+}
+.auth-links {
+  gap: 8px;
+}
+.auth-links a {
+  border-radius: 9px;
+  padding: 10px 15px;
+}
+.auth-links .login-link:hover, .auth-links .login-link.active {
+  color: var(--primary);
+}
+.auth-links .register-link {
+  background: var(--primary);
+  color: var(--secondary);
+}
+.auth-links .register-link:hover, .auth-links .register-link.active {
+  background: var(--primary-hover);
+  transform: translateY(-1px);
+}
+.menu-toggle {
+  background: none;
+  border: 0;
+  cursor: pointer;
+  display: none;
+  padding: 8px;
+}
+.menu-toggle span {
+  background: #fff;
+  border-radius: 3px;
+  display: block;
+  height: 2px;
+  margin: 5px 0;
+  transition: .25s ease;
+  width: 24px;
+}
+/* Collapsible tablet and mobile navigation. */
+@media (max-width: 980px) {
+  .navbar {
+    height: 70px;
+    padding: 0 22px;
+  }
+  .menu-toggle {
+    display: block;
+    position: relative;
+    z-index: 3;
+  }
+  .menu-toggle[aria-expanded='true'] span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+  .menu-toggle[aria-expanded='true'] span:nth-child(2) {
+    opacity: 0;
+  }
+  .menu-toggle[aria-expanded='true'] span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+  .nav-menu {
+    align-items: stretch;
+    background: var(--secondary);
+    border-top: 1px solid rgba(255, 255, 255, .09);
+    box-shadow: 0 14px 24px rgba(0, 0, 0, .15);
+    flex-direction: column;
+    gap: 18px;
+    left: 0;
+    opacity: 0;
+    padding: 18px 22px 24px;
+    pointer-events: none;
+    position: absolute;
+    right: 0;
+    top: 70px;
+    transform: translateY(-10px);
+    transition: .22s ease;
+    visibility: hidden;
+  }
+  .nav-menu.is-open {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+    visibility: visible;
+  }
+  .nav-links {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 3px;
+  }
+  .nav-links a {
+    padding: 11px 12px;
+  }
+  .nav-links a.active::after {
+    bottom: 6px;
+    left: 12px;
+    right: auto;
+    width: 28px;
+  }
+  .auth-links {
+    border-top: 1px solid rgba(255, 255, 255, .1);
+    padding-top: 16px;
+  }
+  .auth-links a {
+    text-align: center;
+    width: 50%;
+  }
+}
+@media (max-width: 640px) {
+  .brand {
+    font-size: 1rem;
+  }
+  .brand-mark {
+    height: 32px;
+    width: 32px;
+  }
+}

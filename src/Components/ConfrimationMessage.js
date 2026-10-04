@@ -1,7 +1,8 @@
 function ConfirmationMessage(){
     return (
-        <div className = "confirm">
-            <h1>Items Added To Cart Successfully</h1>
+        <div className="confirm" role="status" aria-live="polite">
+            <span className="confirm-icon" aria-hidden="true">✓</span>
+            <h1>Added to your cart</h1>
         </div>
     )
 }

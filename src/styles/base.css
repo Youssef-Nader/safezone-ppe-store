@@ -1,0 +1,115 @@
+
+/* Theme tokens shared throughout the storefront. */
+:root {
+  --primary: #F5B800;
+  --primary-hover: #D99A00;
+  --primary-soft: #FFF8DB;
+  --secondary: #102A43;
+  --secondary-light: #334E68;
+  --accent: #F97316;
+  --success: #16A34A;
+  --danger: #DC2626;
+  --background: #F8FAFC;
+  --surface: #FFFFFF;
+  --text-primary: #1E293B;
+  --text-secondary: #64748B;
+  --border: #E2E8F0;
+  --shadow-sm: 0 4px 14px rgba(16, 42, 67, .07);
+  --shadow-md: 0 14px 34px rgba(16, 42, 67, .12);
+  --radius: 16px;
+}
+/* Base reset and typography. */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  background: var(--background);
+  color: var(--text-primary);
+  font-family: 'DM Sans', sans-serif;
+  line-height: 1.5;
+}
+h1, h2, h3 {
+  font-family: 'Manrope', sans-serif;
+  line-height: 1.2;
+}
+button, input, select {
+  font: inherit;
+}
+button, a {
+  -webkit-tap-highlight-color: transparent;
+}
+img {
+  display: block;
+  max-width: 100%;
+}
+main {
+  min-height: 65vh;
+}
+/* Shared page layout helpers. */
+.container {
+  margin-inline: auto;
+  width: min(1180px, calc(100% - 40px));
+}
+.page-section {
+  padding: 64px 0 80px;
+}
+.eyebrow {
+  color: var(--accent);
+  font-size: .78rem;
+  font-weight: 800;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+}
+.not-found {
+  align-items: center;
+  background: var(--background);
+  color: var(--secondary);
+  display: flex;
+  font-size: 1.4rem;
+  justify-content: center;
+  min-height: 70vh;
+  padding: 20px;
+  text-align: center;
+}
+/* Gentle shared entrance animations. */
+@keyframes card-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes toast-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+/* Respect visitors who prefer reduced motion. */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+  }
+}
+@media (max-width: 640px) {
+  .container {
+    width: min(100% - 28px, 1180px);
+  }
+  .page-section {
+    padding: 44px 0 60px;
+  }
+}

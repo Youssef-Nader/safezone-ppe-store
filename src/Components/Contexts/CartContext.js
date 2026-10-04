@@ -1,5 +1,4 @@
 import { createContext, useEffect, useState } from "react";
-import { jsx } from "react/jsx-runtime";
 
 export const CartContext = createContext();
 

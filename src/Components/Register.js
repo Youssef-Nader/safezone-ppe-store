@@ -29,7 +29,7 @@ function Register () {
             alert("Please enter your username");
             return;
         }
-        if (inputs.password.length < 6 && inputs.password.length < 15) {
+        if (inputs.password.length < 6 || inputs.password.length > 15) {
             alert("Password must be at least 6 characters and cannot exceed 15 characters");
             return;
         }
@@ -46,30 +46,30 @@ function Register () {
     }
 
     return(
-        <section class = "register">
+        <section className = "register">
             <form>
                 <h2>Create Account</h2> 
-                <input type= "text" placeholder="First Name" class="f-name"
+                <input type= "text" placeholder="First Name" className="f-name"
                 value={inputs.firstName} 
                 onChange={(e)=>setInputs({...inputs, firstName : e.target.value})}
                 />
 
-                <input type= "text" placeholder="Last Name" class="l-name"
+                <input type= "text" placeholder="Last Name" className="l-name"
                 value={inputs.lastName} 
                 onChange={(e)=>setInputs({...inputs, lastName : e.target.value})}
                 />
 
-                <input type= "text" placeholder="Username" class="username"
+                <input type= "text" placeholder="Username" className="username"
                 value={inputs.username} 
                 onChange={(e)=>setInputs({...inputs, username : e.target.value})}
                 />
 
-                <input type="password" placeholder="Password" class="pw"
+                <input type="password" placeholder="Password" className="pw"
                 value={inputs.password} 
                 onChange={(e)=>setInputs({...inputs, password : e.target.value})}
                 />
 
-                <input type="email" placeholder="Email" class="email"
+                <input type="email" placeholder="Email" className="email"
                 value={inputs.email} 
                 onChange={(e)=>setInputs({...inputs, email : e.target.value})}
                 />

@@ -1,0 +1,11 @@
+
+/* Central stylesheet entry point. Component styles stay split for easier maintenance. */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap');
+@import './base.css';
+@import './navbar.css';
+@import './home.css';
+@import './products.css';
+@import './product-detail.css';
+@import './cart.css';
+@import './auth.css';
+@import './footer.css';

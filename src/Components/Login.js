@@ -16,7 +16,7 @@ function Login(){
             alert("Please enter your username");
             return;
         }
-        if (inputs.password.length < 6 && inputs.password.length < 15) {
+        if (inputs.password.length < 6 || inputs.password.length > 15) {
             alert("Password must be at least 6 characters and cannot exceed 15 characters");
             return;
         }   
@@ -28,12 +28,12 @@ function Login(){
             <form>
                 <h2>Login</h2>
 
-                <input type= "text" placeholder="Username" class="username"
+                <input type= "text" placeholder="Username" className="username"
                 value={inputs.username} 
                 onChange={(e)=>setInputs({...inputs, username : e.target.value})}
                 />
 
-                <input type="password" placeholder="Password" class="pw"
+                <input type="password" placeholder="Password" className="pw"
                 value={inputs.password} 
                 onChange={(e)=>setInputs({...inputs, password : e.target.value})}
                 />

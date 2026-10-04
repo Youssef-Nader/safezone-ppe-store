@@ -1,5 +1,5 @@
 import { useContext, useState, useEffect } from "react";
-import { useParams} from "react-router-dom";
+import { Link, useParams} from "react-router-dom";
 import { productsDetails } from "./Contexts/ProdcutsContext";
 import { CartContext } from "./Contexts/CartContext";
 import ConfirmationMessage from "./ConfrimationMessage";
@@ -26,49 +26,37 @@ function ProductDetail(){
     }
 
     useEffect(()=>{
-            category.find((c)=> {
-                if(c.id == categoryId){
-                    c.products.find((p)=>{
-                        if(p.id == productId)
-                            document.title = `SafeZone PPE Store | ${p.name}`;
-                    })
-                }
-            })
-        },[category, categoryId, productId])
+        const currentCategory = category.find((item) => String(item.id) === categoryId);
+        const currentProduct = currentCategory?.products.find((item) => String(item.id) === productId);
+        document.title = currentProduct
+            ? `SafeZone PPE Store | ${currentProduct.name}`
+            : "SafeZone PPE Store | Product";
+    },[category, categoryId, productId])
 
 
-    const categoryList = category.map((c)=>{
-        if(c.id == categoryId)
-            return(
-                <>
-                    {c.products.map((prod)=>{
-                        if(prod.id == productId)
-                            return(
-                                <div className = "product-detail">
-                                    <div className="product" key={prod.id}>
-                                        <h3>{prod.name}</h3>
-                                        <img src={prod.image_url} alt={prod.name} />
-                                        <h4>{prod.description}</h4>
-                                        <p>Price : <span>${prod.price}</span></p>
-                                        <div className="quantity">
-                                            <button onClick={handleDecrease}>-</button>
-                                            <span>{quantity}</span>
-                                            <button onClick={handleIncrease}>+</button>
-                                        </div>
-                                    <button className="add-cart" onClick={()=> {handleAddToCart(prod)}}>Add to Cart</button>
-                                    </div>
-                                    {message && <ConfirmationMessage/>}
-                                </div>
-                            )
-                    })}
-                </>
-            )
-    })
+    const selectedCategory = category.find((item) => String(item.id) === categoryId);
+    const product = selectedCategory?.products.find((item) => String(item.id) === productId);
+
+    if (!product) {
+        return <div className="empty"><h1>Product not found</h1><p>This item may no longer be available.</p><Link to="/products">Back to products</Link></div>;
+    }
 
     return (
-        <>
-            {categoryList}
-        </>
+        <div className="product-detail">
+            <div className="product">
+                <img src={product.image_url} alt={product.name} />
+                <h3>{product.name}</h3>
+                <h4>{product.description}</h4>
+                <p>Price: <span>${product.price.toFixed(2)}</span></p>
+                <div className="quantity" aria-label="Product quantity">
+                    <button aria-label="Decrease quantity" onClick={handleDecrease}>−</button>
+                    <span>{quantity}</span>
+                    <button aria-label="Increase quantity" onClick={handleIncrease}>+</button>
+                </div>
+                <button className="add-cart" onClick={() => handleAddToCart(product)}>Add to cart</button>
+            </div>
+            {message && <ConfirmationMessage/>}
+        </div>
     )
 }
 export default ProductDetail;
