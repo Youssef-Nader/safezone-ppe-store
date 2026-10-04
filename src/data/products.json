@@ -255,42 +255,42 @@
                     "name": "Anti-Fog Safety Goggles",
                     "description": "Anti-fog goggles providing clear vision in humid environments.",
                     "price": 12.00,
-                    "image_url": "/assets/products/goggles/goggles-1.png"
+                    "image_url": "/assets/Products/goggles/goggles-1.png"
                 },
                 {
                     "id": 602,
                     "name": "Chemical Splash Goggles",
                     "description": "Special goggles to protect against chemical splashes.",
                     "price": 15.00,
-                    "image_url": "/assets/products/goggles/goggles-2.png"
+                    "image_url": "/assets/Products/goggles/goggles-2.png"
                 },
                 {
                     "id": 603,
                     "name": "Welding Safety Goggles",
                     "description": "Dark-tinted goggles designed for welding tasks.",
                     "price": 18.00,
-                    "image_url": "/assets/products/goggles/goggles-3.png"
+                    "image_url": "/assets/Products/goggles/goggles-3.png"
                 },
                 {
                     "id": 604,
                     "name": "Impact Resistant Goggles",
                     "description": "Impact resistant goggles for industrial environments.",
                     "price": 20.00,
-                    "image_url": "/assets/products/goggles/goggles-4.png"
+                    "image_url": "/assets/Products/goggles/goggles-4.png"
                 },
                 {
                     "id": 605,
                     "name": "UV Protection Goggles",
                     "description": "Protects eyes from UV radiation, ideal for outdoor tasks.",
                     "price": 22.00,
-                    "image_url": "/assets/products/goggles/goggles-5.png"
+                    "image_url": "/assets/Products/goggles/goggles-5.png"
                 },
                 {
                     "id": 606,
                     "name": "Adjustable Strap Goggles",
                     "description": "Comfortable goggles with adjustable straps for secure fit.",
                     "price": 14.00,
-                    "image_url": "/assets/products/goggles/goggles-6.png"
+                    "image_url": "/assets/Products/goggles/goggles-6.png"
                 }
             ]
         }
